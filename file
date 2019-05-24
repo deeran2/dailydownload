@@ -1,0 +1,15 @@
+import java.net.*;
+import java.io.*;
+
+public class URLConnectionReader {
+    public static void main(String[] args) throws Exception {
+        URL oracle = new URL("http://download.publicradio.org/podcast/minnesota/classical/programs/free-downloads/2019/05/23/daily_download_20190523_128.mp3");
+        URLConnection yc = oracle.openConnection();
+        BufferedReader in = new BufferedReader(new InputStreamReader(
+                                    yc.getInputStream()));
+        String inputLine;
+        while ((inputLine = in.readLine()) != null) 
+            System.out.println(inputLine);
+        in.close();
+    }
+}
